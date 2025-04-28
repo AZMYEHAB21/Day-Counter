@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Hayaati❤👫🏻💍
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <button id="theme-button">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </div>
+
+        <header class="header">
+            <h1 id="main-title" class="title"> معا للأبد ❤👫🏻</h1>
+        </header>
+
+        <div class="counter-container">
+            <div class="counter-box main-counter">
+                <div class="counter-value" id="days-counter">0</div>
+                <div class="counter-label">يوم</div>
+            </div>
+
+            <div class="detailed-counters">
+                <div class="counter-box">
+                    <div class="counter-value" id="months-counter">0</div>
+                    <div class="counter-label">شهر</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-value" id="weeks-counter">0</div>
+                    <div class="counter-label">أسبوع</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-value" id="hours-counter">0</div>
+                    <div class="counter-label">ساعة</div>
+                </div>
+            </div>
+
+            <div class="live-counter">
+                <div class="live-counter-item">
+                    <span id="minutes-counter">00</span>
+                    <span class="live-label">دقيقة</span>
+                </div>
+                <div class="live-counter-item">
+                    <span id="seconds-counter">00</span>
+                    <span class="live-label">ثانية</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="date-display">
+            <p>من تاريخ: <span id="start-date-display">16/12/2023</span></p>
+            <p>إلى تاريخ: <span id="current-date-display">اليوم</span></p>
+        </div>
+
+        <!-- إضافة جديدة: عرض الوقت المنقضي بالتفصيل -->
+        <div class="elapsed-time">
+            <div class="elapsed-time-title">الوقت المنقضي بالتفصيل</div>
+            <div class="elapsed-time-details">
+                <div class="elapsed-item">
+                    <span id="total-hours">0</span>
+                    <span class="elapsed-label">ساعة</span>
+                </div>
+                <div class="elapsed-item">
+                    <span id="total-minutes">0</span>
+                    <span class="elapsed-label">دقيقة</span>
+                </div>
+                <div class="elapsed-item">
+                    <span id="total-seconds">0</span>
+                    <span class="elapsed-label">ثانية</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- إضافة جديدة: عرض الوقت الحالي -->
+        <div class="current-time">
+            <div id="current-time-display">00:00:00</div>
+            <div class="time-label">الوقت الحالي</div>
+        </div>
+
+       
+
+        <div class="actions">
+            <button id="refresh-btn" class="action-button">تحديث</button>
+            <button id="share-btn" class="action-button">مشاركة</button>
+            <button id="custom-date-btn" class="action-button">تغيير التاريخ</button>
+            <button id="screenshot-btn" class="action-button">لقطة شاشة</button>
+        </div>
+
+        <div id="custom-date-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>اختر تاريخ البداية</h2>
+                <input type="date" id="custom-date-input">
+                <button id="save-date" class="action-button">حفظ</button>
+            </div>
+        </div>
+
+        <div id="anniversary-celebration" class="celebration">
+            <h2>مبروك! مرت سنة كاملة منذ البداية 🎉</h2>
+            <div class="fireworks"></div>
+            <div class="fireworks"></div>
+            <div class="fireworks"></div>
+            <button id="celebration-close" class="action-button">إغلاق</button>
+        </div>
+
+        <div class="sound-control">
+            <button id="sound-toggle" class="sound-button">
+                <span class="sound-on">🔊</span>
+                <span class="sound-off">🔇</span>
+            </button>
+        </div>
+        
+        <!-- إضافة جديدة: تخصيص الألوان -->
+        <div class="color-customizer">
+            <button id="color-toggle" class="color-button">🎨</button>
+            <div class="color-panel">
+                <div class="color-option" data-theme="blue" style="background: linear-gradient(135deg, #6a11cb, #2575fc);"></div>
+                <div class="color-option" data-theme="red" style="background: linear-gradient(135deg, #FF416C, #FF4B2B);"></div>
+                <div class="color-option" data-theme="green" style="background: linear-gradient(135deg, #11998e, #38ef7d);"></div>
+                <div class="color-option" data-theme="purple" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0);"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>تم تطوير هذا الموقع بواسطة <span class="developer-name">عزمي ايهاب </span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

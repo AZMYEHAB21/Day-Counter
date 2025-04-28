@@ -1,0 +1,688 @@
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc1e9;
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --gradient-start: #6a11cb;
+    --gradient-end: #2575fc;
+    --success-color: #48cfad;
+    --warning-color: #ffce54;
+    --danger-color: #ed5565;
+}
+
+/* تعريف السمات اللونية المختلفة */
+.theme-blue {
+    --gradient-start: #6a11cb;
+    --gradient-end: #2575fc;
+}
+
+.theme-red {
+    --gradient-start: #FF416C;
+    --gradient-end: #FF4B2B;
+}
+
+.theme-green {
+    --gradient-start: #11998e;
+    --gradient-end: #38ef7d;
+}
+
+.theme-purple {
+    --gradient-start: #8E2DE2;
+    --gradient-end: #4A00E0;
+}
+
+.dark-theme {
+    --primary-color: #3a8ee6;
+    --secondary-color: #2c3e50;
+    --accent-color: #5e72e4;
+    --text-color: #f5f5f5;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --gradient-start: #434343;
+    --gradient-end: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: all 0.3s ease;
+    direction: rtl;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1s forwards 0.5s;
+}
+
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.counter-box {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 120px;
+}
+
+.counter-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px var(--shadow-color);
+}
+
+.main-counter {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.counter-value {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.main-counter .counter-value {
+    font-size: 4rem;
+}
+
+.counter-label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.main-counter .counter-label {
+    color: white;
+    opacity: 1;
+}
+
+.detailed-counters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.detailed-counters .counter-box {
+    flex: 1;
+    min-width: 100px;
+}
+
+.live-counter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    width: 100%;
+    max-width: 300px;
+}
+
+.live-counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.live-counter-item span:first-child {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.live-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* إضافة جديدة: عرض التاريخ */
+.date-display {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.date-display p {
+    margin: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.date-display span {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* إضافة جديدة: عرض الوقت المنقضي بالتفصيل */
+.elapsed-time {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.elapsed-time-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.elapsed-time-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.elapsed-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.elapsed-item span:first-child {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.elapsed-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* إضافة جديدة: عرض الوقت الحالي */
+.current-time {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+}
+
+#current-time-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: monospace;
+}
+
+.time-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+/* إضافة جديدة: عداد تنازلي للمناسبات القادمة */
+.upcoming-events {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.upcoming-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.event-countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#event-selector {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Cairo', sans-serif;
+    width: 100%;
+    max-width: 200px;
+}
+
+.countdown-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#event-days {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.action-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+.action-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#theme-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+#theme-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-icon {
+    display: none;
+}
+
+.dark-theme .light-icon {
+    display: none;
+}
+
+.dark-theme .dark-icon {
+    display: inline;
+}
+
+/* إضافة جديدة: تخصيص الألوان */
+.color-customizer {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.color-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.color-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.color-panel {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.color-panel.active {
+    display: flex;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.developer-name {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#custom-date-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Cairo', sans-serif;
+}
+
+.celebration {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+.celebration h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fireworks {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+    animation: fireworks 2s infinite;
+}
+
+.fireworks:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.fireworks:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.sound-control {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.sound-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.sound-off {
+    display: none;
+}
+
+.muted .sound-on {
+    display: none;
+}
+
+.muted .sound-off {
+    display: inline;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes countUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes fireworks {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+        width: 5px;
+        height: 5px;
+    }
+    100% {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+/* إضافة جديدة: تأثير نبض للعداد الرئيسي */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .main-counter .counter-value {
+        font-size: 3rem;
+    }
+    
+    .counter-value {
+        font-size: 2rem;
+    }
+    
+    .detailed-counters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .detailed-counters .counter-box {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .main-counter .counter-value {
+        font-size: 2.5rem;
+    }
+    
+    .actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .action-button {
+        width: 100%;
+    }
+}
